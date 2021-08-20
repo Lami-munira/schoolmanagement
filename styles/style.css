@@ -1,0 +1,49 @@
+.landing img{
+    width: 90%;
+    height: auto;
+    margin-left: 10%;
+}
+
+h1{
+    font-family: 'Teko', sans-serif;
+    font-size: 42px;
+}
+
+.landing{
+    padding-top: 10%;
+    background-color: rgb(240, 255, 240);
+}
+
+html, body{
+    background-color: rgb(240, 255, 240);
+}
+
+.login-part{
+    padding-left: 100px;
+    padding-top: 30px;
+}
+
+input{
+    max-width: 70%;
+}
+
+.credentials{
+    padding-top: 25px;
+}
+
+
+.green-button{
+    background-color: rgb(33, 181, 115);
+    margin-top: 10px;
+    width: 180px;
+    height: 45px;
+    color: white;
+    border-radius: 30px;
+    border: none;
+}
+
+
+button:hover{
+    background-image: linear-gradient(to right, #11998e, #38ef7d);
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.2);
+}
