@@ -10,7 +10,7 @@ loginButton.addEventListener('click',function(){
     passWord = passWordInput.value;
 
     if(userName == 'admin' && passWord == 'root'){
-        window.location.href = 'logged.html';
+        window.location.href = 'adminLogged.html';
     }
     else{
         alert('Invalid username or password.');
