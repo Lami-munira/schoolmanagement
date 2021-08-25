@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DMS | Students</title>
+    <title>DMS | Notices</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
 </head>
@@ -12,7 +12,9 @@
     <div class="container d-flex justify-content-between">
         <!-- Navbar logo -->
         <div class="top">
-            <img src="../assets/ICON/LogoBKP.png" alt="">
+            <a href="../index.html">
+                <img src="../assets/ICON/LogoBKP.png" alt="">
+            </a>
         </div>
         <!-- Navbar elements -->
         <div>
@@ -22,6 +24,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="viewStudents.html">Students</a>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="adminLogged.html">Admin</a>
                         </li>
@@ -41,39 +46,24 @@
                 <input class="form-control" type="text" placeholder="Search" aria-label="default input example">
             </div>
             <div class="p-2 bd-highlight">
-                <a href="addStudent.html"><button class="green-button">Add student</button></a>
+                <a href="addNotice.html"><button class="green-button">Add notice</button></a>
             </div>
           </div>
-        <div class="recordTable">
+        <div>
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Content</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                    <tr>
+                        <th>1955</th>
+                        <th>02-12-2010</th>
+                        <th>Ajhlaksjdhfalksdjfa.........</th>
+                    </tr>
                 </tbody>
             </table>
         </div>
