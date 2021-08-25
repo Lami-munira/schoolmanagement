@@ -11,7 +11,7 @@
 }
 
 .pageSelector{
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 a{
@@ -66,4 +66,13 @@ body{
 
 .submitRecord{
     margin-bottom: 30px;
+}
+
+.back-btn{
+    padding-left: 130px;
+    padding-top: 10px;
+}
+
+.form-group textarea{
+    max-width: 60%;
 }
