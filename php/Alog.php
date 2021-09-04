@@ -24,3 +24,4 @@ if (isset($_POST['Alogin'])) {
     echo "<script> alert('Invalid Email or Password.Please Try Again!!') </script>";
     echo "<script> window.open('../pages/adminLogin.html','_self') </script>";
 }
+?>
