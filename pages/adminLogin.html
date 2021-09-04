@@ -12,33 +12,34 @@
     <link rel="stylesheet" href="../styles/login_style.css">
 </head>
 <body>
-    <div class="container-fluid landing">
-        <div class="row banner">
-            <div class="col-md-6">
-                <img src="../assets/Illustration.png" alt="">
+  <div class="container-fluid landing">
+    <div class="row banner">
+        <div class="col-md-6">
+        <img src="../assets/Illustration.png" alt="">
+
+        </div>
+        <div class="col-md-6 login-part">
+          <h1>School Management System</h1>
+          <form class="credentials" action = "../php/Alog.php" method = "post">
+            <div class="mb-3">
+              <label id="username" for="exampleInputEmail1" class="form-label">Email</label>
+              <input type="text" name = "email" class="form-control" id="exampleInputEmail1">
             </div>
-            <div class="col-md-6 login-part">
-              <h1>School Management System</h1>
-              <br>
-              <br>
-              <form class="Alog.php" method = "post">
-                <div class="mb-3">
-                  <label id="username" for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-              </form>
-                <button id="login-btn" class="green-button">Login</button>
-              <a href="../index.html"><button class="green-button">Back to home</button></a>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name = "pd" class="form-control" id="exampleInputPassword1">
             </div>
-          </div>
-    </div>
-    <script src="../scripts/loginPage.js"></script>
+            <input type="submit" class="green-button" name="Alogin" value="Login">
+            <a href="../index.html"><button class="green-button">Back to home</button></a>
+          </form>
+          <!--  <button id="login-btn" class="green-button">Login</button>-->
+        </div>
+      </div>
+</div>
+   <!-- <script src="../scripts/loginPage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-</body>
+   -->
+  </body>
 </html>
