@@ -24,3 +24,4 @@ if (isset($_POST['Slogin'])) {
     echo "<script> alert('Enter Email and Password.Please Try Again!!') </script>";
     echo "<script> window.open('../pages/studentLogin.html','_self') </script>";
 }
+?>
