@@ -24,3 +24,4 @@ if (isset($_POST['Tlogin'])) {
     echo "<script> alert('Invalid Email or Password.Please Try Again!!') </script>";
     echo "<script> window.open('../pages/TeacherLogin.html','_self') </script>";
 }
+?>
