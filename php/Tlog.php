@@ -37,8 +37,4 @@ else {
     echo "<script> alert('Invalid Email or Password.Please Try Again!!') </script>";
     echo "<script> window.open('../pages/TeacherLogin.html','_self') </script>";
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> 45b759d5294230d96bf1655aebb96b2aeaf994d8
