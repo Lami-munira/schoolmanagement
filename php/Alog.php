@@ -1,26 +1,48 @@
 <?php
-if (isset($_POST['Alogin'])) {
+
+include("connection.php");
+
+if (isset($_POST['back'])) {
+    header('Location: ../index.html');
+}
+
+if (isset($_POST['Alogin'])){
+
     $user = $_POST['email'];
-    $ok = $_POST['pd'];
+    $ok = $_POST['apd'];
+
     if ($user == '') {
         echo "Please Enter Your Email";
         echo "<script> window.open('../pages/adminLogin.html','_self') </script>";
         exit();
     }
+
     if ($ok == '') {
         echo "Please Enter Your Password";
         echo "<script> window.open('../pages/adminLogin.html','_self') </script>";
         exit();
     }
-    if ($ok == 'root' && $user == 'admin') { 
+
+    $che = "select * from admin where email = '$user' and password = '$ok' ";
+
+    $R = mysqli_query($conn, $che);
+    
+    if (mysqli_num_rows($R) == 1) {
+        session_start();
+        $_SESSION['email'] = $user;
         echo "<script> alert('Successful') </script>";
         header('Location: ../pages/adminLogged.html');
     } else {
         echo "<script> alert('Wrong Email Or Password.Please Try Again!!') </script>";
         echo "<script> window.open('../pages/adminLogin.html','_self') </script>";
-
     }
-} else {
+} 
+else {
     echo "<script> alert('Invalid Email or Password.Please Try Again!!') </script>";
     echo "<script> window.open('../pages/adminLogin.html','_self') </script>";
 }
+<<<<<<< HEAD
+?>
+=======
+?>
+>>>>>>> 45b759d5294230d96bf1655aebb96b2aeaf994d8

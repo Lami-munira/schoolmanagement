@@ -23,7 +23,6 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
     <link rel="stylesheet" href="../styles/style.css">
-
 </head>
 
 <body>
@@ -66,20 +65,23 @@
     <br>
     <br>
     <center> <h2> Notice </h2> <br>
-    <p>
-        Our School will remain close on 30th August, 2021 due to the festival Janmashtami.
-    </p>
+    <table class = "table">
+        <thead colspan = "10"></thead>
+                <?php
+        include('../php/connection.php');
+        $viwU = "SELECT * FROM notice order by id desc;"; // 0 or many value return korbe 
+        $run = mysqli_query($conn, $viwU); // associative array and array type
+        // mysqli_fetch_assoc()
+        while ($x = mysqli_fetch_array($run)) { //
+            $UN = $x[1];
+        ?>
+            <tr>
+                <th colspan = "10"> <?php echo  $UN; echo '<br>'; ?> </th>
+            </tr> 
+        <?php
+        }
+        ?>
+            </table>
 </center>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header("Location: studentLogin.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +27,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Student</title>
+  <title>Student</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
@@ -47,7 +55,7 @@
                 <a class="nav-link" href="studentProfile.html"><button class="green-button">Profile</button></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=" ../index.html"><button class="green-button">Logout</button></a>
+                <a class="nav-link" href="logout.php"><button class="green-button">Logout</button></a>
               </li>
 
             </ul>
@@ -67,10 +75,8 @@
         </div>
         <div class="col info">  <center>
           <ul type="none">
-            <li> <a href="viewRoutine.html"><button class="x">Class routine</button></a></li> <br> <br>
-            <li> <a href="studentSubject.html"><button class="x">Subjects</button></a></li><br> <br>
-            <li> <a href="classRecords.html"><button class="x">Class Records</button></a></li><br> <br>
-            <li> <a href="studentChangePassword.html"><button class="x">Change password</button></a></li>
+            <li> <a href="viewRoutine.html"><button class="x">Class routine</button></a> <a href="studentSubject.html"><button class="x">Subjects</button></a></li><br> <br>
+            <li> <a href="classRecords.html"><button class="x">Class Records</button></a> <a href="studentChangePassword.html"><button class="x">Change password</button></a></li>
           </ul></center>
         </div>
       </div>

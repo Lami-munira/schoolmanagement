@@ -31,8 +31,8 @@
                             <a class="nav-link" href="adminLogged.html">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="loginPage.html">Logout</a>
-                        </li>
+                <a class="nav-link" href="logout.php"><button class="green-button">Logout</button></a>
+              </li>
                     </ul>
                 </div>
             </nav>
@@ -43,8 +43,11 @@
     <div class="container searchBox">
         <div class="d-flex bd-highlight">
             <div class="p-2 flex-grow-1 bd-highlight">
-                <input class="form-control" type="text" placeholder="Search" aria-label="default input example">
+                <input class="form-control" type="text" placeholder="Search bar under construction . . . . " aria-label="default input example">
             </div>
+            <div class="p-2 bd-highlight">
+                <a href="searchnotice.php"><button class="green-button"> Search</button></a>
+            </div>            
             <div class="p-2 bd-highlight">
                 <a href="addNotice.html"><button class="green-button">Add notice</button></a>
             </div>
@@ -56,10 +59,31 @@
                     <th scope="col">ID</th>
                     <th scope="col">Content</th>
                   </tr>
-                </thead> <tr>
-                <td> <?="hi"; ?></td>
-                <td> <?php echo "hi"; ?></td>
-                </tr>
+                </thead> 
+                <?php
+        include('../php/connection.php');
+        $viwU = "SELECT * FROM notice;"; // 0 or many value return korbe 
+        $run = mysqli_query($conn, $viwU); // associative array and array type
+        // mysqli_fetch_assoc()
+        while ($x = mysqli_fetch_array($run)) { //
+            $UID = $x[0];
+            $UN = $x[1];
+        ?>
+            <tr>
+                <th> <?php echo  $UID; ?> </th>
+                <th> <?php echo  $UN; ?> </th>
+                <td>
+                    <a class = "green-button" href="editnoticeUI.php?id=<?=$UID; ?>">
+                    <button class = "green-button" >  Edit </button></a>
+                </td>
+                <td>
+                    <a href="deletenotice.php?id=<?=$UID; ?>">
+                    <button class = "green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
             </table>
         </div>
     </div>
