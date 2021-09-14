@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['Aemail']))
+{
+    header("Location: adminLogin.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +43,14 @@
         </div>
         <!--Navbar end-->
     </div>
-
+     <!-- all works related to showing + adding + searching + deleting + editing -->
     <div class="container searchBox">
         <div class="d-flex bd-highlight">
             <div class="p-2 flex-grow-1 bd-highlight">
                 <input class="form-control" type="text" placeholder="Search" aria-label="default input example">
             </div>
             <div class="p-2 bd-highlight">
-                <a href="addTeacher.html"><button class="green-button">Add teacher</button></a>
+                <a href="addTeacher.html"><button class="green-button">Add</button></a>
             </div>
           </div>
         <div>
@@ -57,31 +64,50 @@
                     <th scope="col">Email</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
+                <tbody id = "tmp"> 
+
+
+<?php
+    include('../php/connection.php');
+    $viwU = "SELECT * FROM teacher;"; // 0 or many value return korbe 
+    $run = mysqli_query($conn, $viwU); // associative array and array type
+
+
+    while ($x = mysqli_fetch_assoc($run)) { //
+        $id = $x['id'];
+        $name = $x['name'];
+        $gender = $x['gender'];
+        $phone = $x['phone'];
+        $email = $x['email'];
+?>
+
+<tr>
+<th> <?php echo  $id; ?> </th>
+<th> <?php echo  $name; ?> </th>
+<th> <?php echo  $gender; ?> </th>
+<th> <?php echo  $phone; ?> </th>
+<th> <?php echo  $email; ?> </th>
+    <td>
+    <a class = "green-button" href="#">
+     <button class = "green-button" >  Edit </button></a>
+     </td>
+    <td>
+        <a href="#">
+        <button class = "green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
+    </td>
+</tr>
+
+     <?php
+}
+     ?>
+     </tbody>
+
+     <tbody id = "searchR"></tbody>
             </table>
         </div>
     </div>
     <div class="container back-btn">
-        <a href="adminLogged.html"><button class="green-button">Go back</button></a>
+        <a href="adminLogged.php"><button class="green-button">Go back</button></a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

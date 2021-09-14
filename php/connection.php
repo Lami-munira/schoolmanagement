@@ -2,7 +2,8 @@
   $server ="localhost";
   $password ="";
   $username = "root";
-  $database_name = "practice";
+  $database_name = "sms";
+
  
   $conn = mysqli_connect($server, $username , $password , $database_name);
  

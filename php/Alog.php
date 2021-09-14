@@ -29,9 +29,8 @@ if (isset($_POST['Alogin'])){
     
     if (mysqli_num_rows($R) == 1) {
         session_start();
-        $_SESSION['email'] = $user;
-        echo "<script> alert('Successful') </script>";
-        header('Location: ../pages/adminLogged.html');
+        $_SESSION['Aemail'] = $user;
+        header('Location: ../pages/adminLogged.php');
     } else {
         echo "<script> alert('Wrong Email Or Password.Please Try Again!!') </script>";
         echo "<script> window.open('../pages/adminLogin.html','_self') </script>";

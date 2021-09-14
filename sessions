@@ -1,0 +1,67 @@
+<?php
+session_start();
+if (!isset($_SESSION['Aemail'])) {
+    header("Location: adminLogin.html");
+}
+?>
+
+<td>
+    <a class="green-button" href="editnoticeUI.php?id=<?= $UID; ?>">
+        <button class="green-button"> Edit </button></a>
+</td>
+<td>
+    <a href="deletenotice.php?id=<?= $UID; ?>">
+        <button class="green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
+</td>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#live_search").keyup(function () {
+                var query = $(this).val();
+                if (query != "") {
+                  $(document).click(function(data) {
+                      $("#tmp").hide();
+                    });
+                    $.ajax({
+                        url: '../php/searchclass.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function (data) {
+
+                            $('#tmp').html("");
+                            $('#searchR').html(data);
+                        }
+                    });
+                } else {
+                   $('#tmp').css('display', 'none');
+                }
+            });
+        });
+        $(document).ready(function () {
+            $("#live_search").keydown(function () {
+                var query = $(this).val();
+                if (query != "") {
+                  $(document).click(function(data) {
+                      $("#tmp").hide();
+                    });
+                    $.ajax({
+                        url: '../php/searchclass.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function (data) {
+
+                            $('#tmp').html("");
+                            $('#searchR').html(data);
+                        }
+                    });
+                } else {
+                   $('#tmp').css('display', 'none');
+                }
+            });
+        });
+        
+    </script>

@@ -16,16 +16,16 @@ if (isset($_POST['Tlogin'])) {
         echo "<script> window.open('../pages/TeacherLogin.html','_self') </script>";
         exit();
     }
-    $che = "select * from users where email = '$user' and password = '$ok' and status = 'Teacher'";
+    $che = "select * from teacher where email = '$user' and password = '$ok'";
     $R = mysqli_query($conn , $che);
     if(mysqli_num_rows($R)==1){
         session_start();
-        $_SESSION['email'] = $user ;
-        $row = mysqli_fetch_array($R);
-        
+        $_SESSION['Temail'] = $user ;
+        $row = mysqli_fetch_assoc($R);
+        $_SESSION['Tid'] = $row['id'];
+        $_SESSION['Tname'] = $row['name'];
         echo "<script> alert('Successful') </script>"; 
-        $_SESSION['id'] = $row['id']; // issue 
-        header('Location: ../pages/teacherLogged.html');
+        header('Location: ../pages/teacherLogged.php');
     } 
     else {
         echo "<script> alert('Wrong Email Or Password.Please Try Again!!') </script>";

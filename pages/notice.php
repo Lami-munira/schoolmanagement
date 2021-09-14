@@ -15,11 +15,20 @@
 <html lang="en">
 
 <head>
+    <style>
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notice</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
     <link rel="stylesheet" href="../styles/style.css">
@@ -64,7 +73,11 @@
 </div>
     <br>
     <br>
-    <center> <h2> Notice </h2> <br>
+    <div  class="container testimonial-part">
+        <div class="text-center">
+            <h2>Notice Board</h2>
+        </div>
+
     <table class = "table">
         <thead colspan = "10"></thead>
                 <?php
@@ -82,6 +95,6 @@
         }
         ?>
             </table>
-</center>
+            </div>
 </body>
 </html>
