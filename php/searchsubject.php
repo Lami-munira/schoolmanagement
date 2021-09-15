@@ -6,34 +6,33 @@ if (!isset($_SESSION['Aemail'])) {
 ?>
 <?php
     include("connection.php");
+    echo "hi";
 
   if (isset($_POST['query'])) {
     $q = $_POST['query'];
-      $viwU = "select s.id, s.subjectTeacher , s.name , t.name , t.email from subject s join teacher t on s.subjectTeacher = t.id where s.name like '%$q%' ";
-      $run = mysqli_query($conn, $viwU);
+      $query = "SELECT * FROM subject WHERE name LIKE '%$q%'";
+      $result = mysqli_query($conn, $query);
+
     if (mysqli_num_rows($result) > 0) {
-      while ($x = mysqli_fetch_array($run)) { //
-        $sid = $x[0]; // s.id
-        $sname = $x[2]; //  s.name 
-        $tid = $x[1]; // , s.subjectTeacher ,
-        $tname = $x[3]; // , t.name 
-        $email = $x[4]; // , t.email
+        while ($row = mysqli_fetch_array($result)) {
+          $id    =  $row[0];
+          $content  =  $row[1];
           echo
           "<tr>
-          <th> <?php echo  $sid; ?> </th>
-          <th> <?php echo  $sname; ?> </th>
-          <th> <?php echo  $tname; ?> </th>
-          <th> <?php echo  $email; ?> </th>
-             <a class = 'green-button' href='../php/editSub.php?id=<?= $sid; ?>'>
+            <td scope='col' >$id</td>
+            <td colspan = '10' scope='col'>$content</td>
+            <td></td>
+            <td>
+             <a class = 'green-button' href='editnoticeUI.php?id=<?=$id; ?>'>
              <button class = 'green-button' >  Edit </button></a>
-                <a href='../php/deletesubject.php?id=<?= $sid; ?>'>
+                <a href='deletenotice.php?id=<?=$id; ?>'>
                 <button class = 'green-button' onclick='return confirm('Are you sure?');'> Delete </button></a>
             </td>
           </tr>";
 
           }
     } else {
-      echo "<div> <br><br> <center> Subjects not found . . . </center> <br> </div>";
+      echo "<div> <br><br> <center> Notice not found . . . </center> <br> </div>";
     }
   }
 

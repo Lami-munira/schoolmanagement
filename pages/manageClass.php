@@ -46,7 +46,7 @@ if (!isset($_SESSION['Aemail'])) {
     </div>
     <!-- all works related to showing + adding + searching + deleting + editing -->
     <div class="container searchBox">
-   
+
         <div>
             <table class="table">
                 <thead>
@@ -55,41 +55,43 @@ if (!isset($_SESSION['Aemail'])) {
                         <th scope="col">Teacher</th>
                         <th scope="col">Teacher Email</th>
                         <th scope="col"></th>
-                        <th scope="col"> <div class="p-2 bd-highlight">
-                <a href="addClass.php"><button class="green-button">Add</button></a>
-            </div></th>
+                        <th scope="col">
+                            <div class="p-2 bd-highlight">
+                                <a href="addClass.php"><button class="green-button">Add</button></a>
+                            </div>
+                        </th>
                     </tr>
                 </thead>
-                    <?php
-                    include('../php/connection.php');
-                    $viwU = "select c.id , c.classTeacherID , t.name , t.email from class c join teacher t where c.classTeacherID = t.id order by c.id;"; // 0 or many value return korbe 
-                    $run = mysqli_query($conn, $viwU); // associative array and array type
+                <?php
+                include('../php/connection.php');
+                $viwU = "select c.id , c.classTeacherID , t.name , t.email from class c join teacher t where c.classTeacherID = t.id order by c.id;"; // 0 or many value return korbe 
+                $run = mysqli_query($conn, $viwU); // associative array and array type
 
 
-                    while ($x = mysqli_fetch_array($run)) { //
-                        $id = $x[0];
-                        $tid = $x[1];
-                        $name = $x[2];
-                        $email = $x[3];
-                    ?>
+                while ($x = mysqli_fetch_array($run)) { //
+                    $id = $x[0];
+                    $tid = $x[1];
+                    $name = $x[2];
+                    $email = $x[3];
+                ?>
 
-                        <tr>
-                            <th> <?php echo  $id; ?> </th>
-                            <th> <?php echo  $name; ?> </th>
-                            <th> <?php echo  $email; ?> </th>
-                            <td>
-                                <a class="green-button" href="../php/editclassteacher.php?id=<?= $id; ?>">
-                                    <button class="green-button"> Edit </button></a>
-                            </td>
-                            <td>
-                                <a href="../php/deleteClass.php?id=<?= $id; ?>">
-                                    <button class="green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <th> <?php echo  $id; ?> </th>
+                        <th> <?php echo  $name; ?> </th>
+                        <th> <?php echo  $email; ?> </th>
+                        <td>
+                            <a class="green-button" href="../php/editclassteacher.php?id=<?= $id; ?>">
+                                <button class="green-button"> Edit </button></a>
+                        </td>
+                        <td>
+                            <a href="../php/deleteClass.php?id=<?= $id; ?>">
+                                <button class="green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
+                        </td>
+                    </tr>
 
-                    <?php
-                    }
-                    ?>
+                <?php
+                }
+                ?>
                 </tbody>
             </table>
         </div>

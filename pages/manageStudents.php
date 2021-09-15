@@ -1,5 +1,6 @@
 <?php
 session_start();
+// page r connections thik ache
 if(!isset($_SESSION['Aemail']))
 {
     header("Location: adminLogin.html");
@@ -45,15 +46,6 @@ if(!isset($_SESSION['Aemail']))
     </div>
      <!-- all works related to showing + adding + searching + deleting + editing -->
     <div class="container searchBox">
-        <div class="d-flex bd-highlight">
-            <div class="p-2 flex-grow-1 bd-highlight">
-                <input class="form-control" type="text" placeholder="Search" aria-label="default input example">
-            </div>
-            <div class="p-2 bd-highlight">
-                <a href="addTeacher.html"><button class="green-button">Add</button></a>
-            </div>
-          </div>
-        <div>
             <table class="table">
                 <thead>
                   <tr>
@@ -63,6 +55,10 @@ if(!isset($_SESSION['Aemail']))
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Class</th>
+                    <th ></th>
+                   <th> 
+                <a href="addStudent.php"><button class="green-button">Add</button></a>
+            </th>
                   </tr>
                 </thead>
                 <tbody id = "tmp"> 
@@ -70,7 +66,7 @@ if(!isset($_SESSION['Aemail']))
 
 <?php
     include('../php/connection.php');
-    $viwU = "SELECT * FROM student;"; // 0 or many value return korbe 
+    $viwU = "SELECT * FROM student order by current_class,id;"; // 0 or many value return korbe 
     $run = mysqli_query($conn, $viwU); // associative array and array type
 
 
@@ -91,11 +87,11 @@ if(!isset($_SESSION['Aemail']))
 <th> <?php echo  $email; ?> </th>
 <th> <?php echo  $class; ?> </th>
     <td>
-    <a class = "green-button" href="#">
+    <a class = "green-button" href="../php/editSbyA.php?id=<?= $id;?>">
      <button class = "green-button" >  Edit </button></a>
      </td>
     <td>
-        <a href="#">
+    <a href="../php/delS.php?id=<?= $id; ?>">
         <button class = "green-button" onclick="return confirm('Are you sure?');"> Delete </button></a>
     </td>
 </tr>

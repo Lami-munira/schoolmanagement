@@ -136,30 +136,6 @@ if(!isset($_SESSION['Aemail']))
                 }
             });
         });
-        $(document).ready(function () {
-            $("#live_search").keydown(function () {
-                var query = $(this).val();
-                if (query != "") {
-                  $(document).click(function(data) {
-                      $("#tmp").hide();
-                    });
-                    $.ajax({
-                        url: '../php/searchsubject.php',
-                        method: 'POST',
-                        data: {
-                            query: query
-                        },
-                        success: function (data) {
-
-                            $('#tmp').html("");
-                            $('#searchR').html(data);
-                        }
-                    });
-                } else {
-                   $('#tmp').css('display', 'none');
-                }
-            });
-        });
         
     </script>
 </body>
