@@ -1,13 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION['Aemail']))
-{
+if (!isset($_SESSION['Aemail'])) {
     header("Location: adminLogin.html");
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         table {
@@ -35,6 +35,7 @@ if(!isset($_SESSION['Aemail']))
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
 </head>
+
 <body>
     <div class="container d-flex justify-content-between">
         <!-- Navbar logo -->
@@ -47,7 +48,7 @@ if(!isset($_SESSION['Aemail']))
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -64,7 +65,7 @@ if(!isset($_SESSION['Aemail']))
         <!--Navbar end-->
     </div><br> <br>
     <div class="container searchBox">
-                <!--
+        <!--
 
         <div class="d-flex bd-highlight">
             <div class="p-2 flex-grow-1 bd-highlight">
@@ -75,58 +76,61 @@ if(!isset($_SESSION['Aemail']))
             </div>
           </div>
         <div> -->
-<center>
-    <div class="rou1">
-        <table border="1" cellspacing="0">
-            <thead>
-            <th colspan="5"> Class </th>
-            <th colspan="5"> Subject Name</th>
-                <th colspan="5"> Day1 </th>
-                <th colspan="5"> Day2 </th>
-                <th colspan="5">  Time </th>
-                <th colspan="10"><a href="addTeacher.html"><button class="green-button">Add</button></a>
- </th>
-            </thead>
-            <tbody id = "tmp"> 
-<?php
-    include('../php/connection.php');
-    $viwU = "SELECT * FROM schedule order by cid , day1 , time;"; // 0 or many value return korbe 
-    $run = mysqli_query($conn, $viwU); // associative array and array type
+        <center>
+            <div class="rou1">
+                <table border="1" cellspacing="0">
+                    <thead>
+                        <th colspan="5"> Class </th>
+                        <th colspan="5"> Subject Name</th>
+                        <th colspan="5"> Day1 </th>
+                        <th colspan="5"> Day2 </th>
+                        <th colspan="5"> Time </th>
+                        <th colspan="10"><a href="../php/addSchedule.php"><button class="green-button">Add</button></a>
+                        </th>
+                    </thead>
+                    <tbody id="tmp">
+                        <?php
+                        include('../php/connection.php');
+                        $viwU = "SELECT * FROM schedule s join subject sb on sb.id = s.subid order by s.cid , s.day1 , s.time;"; // 0 or many value return korbe 
+                        $run = mysqli_query($conn, $viwU); // associative array and array type
 
-    while ($x = mysqli_fetch_array($run)) { //
-        $cid = $x[1];
-        $sid = $x[2];
-        $d1 = $x[3];
-        $d2 = $x[4];
-        $tim = $x[5];
-?>
+                        while ($x = mysqli_fetch_array($run)) { //
+                            $cid = $x[1];
+                            $id = $x[0];
+                            $sname = $x[7];
+                            $sid = $x[2];
+                            $d1 = $x[3];
+                            $d2 = $x[4];
+                            $tim = $x[5];
+                        ?>
 
-<tr>
-<th colspan="5"> <?php echo  $cid; ?> </th>
-<th colspan="5"> <?php echo  $sid; ?> </th>
-<th colspan="5"> <?php echo  $d1; ?> </th>
-<th colspan="5"> <?php echo  $d2; ?> </th>
-<th colspan="5"> <?php echo  $tim; ?> </th>
-    <td colspan="5" >
-    <a  href="#">
-     <button  >  Edit </button></a>
-     </td>
-    <td colspan="5" >   
-        <a href="#">
-        <button onclick="return confirm('Are you sure?');"> Delete </button></a>
-    </td>
-</tr>
+                            <tr>
+                                <th colspan="5"> <?php echo  $cid; ?> </th>
+                                <th colspan="5"> <?php echo  $sname; ?> </th>
+                                <th colspan="5"> <?php echo  $d1; ?> </th>
+                                <th colspan="5"> <?php echo  $d2; ?> </th>
+                                <th colspan="5"> <?php echo  $tim; ?> </th>
+                                <td colspan="5">
+                                    <a href="../php/editSchedule.php?id=<?= $id; ?>">
+                                        <button> Edit </button></a>
+                                </td>
+                                <td colspan="5">
+                                    <a href="../php/delSchedule.php?id=<?= $id; ?>">
+                                        <button onclick="return confirm('Are you sure?');"> Delete </button></a>
+                                </td>
+                            </tr>
 
-     <?php
-}
-     ?>
-     </tbody>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
 
-     <tbody id = "searchR"></tbody>
-        </table>
-</center>
-    <div class="container back-btn">
-        <a href="adminLogged.php"><button class="green-button">Go back</button></a>
-    </div> <br>
+                    <tbody id="searchR"></tbody>
+                </table>
+        </center>
+        <div class="container back-btn">
+            <a href="adminLogged.php"><button class="green-button">Go back</button></a>
+        </div> <br>
 </body>
+
 </html>
