@@ -62,8 +62,10 @@ if(!isset($_SESSION['Aemail']))
             </nav>
         </div>
         <!--Navbar end-->
-    </div>
+    </div><br> <br>
     <div class="container searchBox">
+                <!--
+
         <div class="d-flex bd-highlight">
             <div class="p-2 flex-grow-1 bd-highlight">
                 <input class="form-control" type="text" placeholder="Search" aria-label="default input example">
@@ -72,7 +74,7 @@ if(!isset($_SESSION['Aemail']))
                 <a href="addTeacher.html"><button class="green-button">Add</button></a>
             </div>
           </div>
-        <div>
+        <div> -->
 <center>
     <div class="rou1">
         <table border="1" cellspacing="0">
@@ -82,7 +84,8 @@ if(!isset($_SESSION['Aemail']))
                 <th colspan="5"> Day1 </th>
                 <th colspan="5"> Day2 </th>
                 <th colspan="5">  Time </th>
-                <th colspan="5"> </th>
+                <th colspan="10"><a href="addTeacher.html"><button class="green-button">Add</button></a>
+ </th>
             </thead>
             <tbody id = "tmp"> 
 <?php

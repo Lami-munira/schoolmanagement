@@ -9,6 +9,17 @@ if(!isset($_SESSION['Aemail']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+        table {
+            font-style: italic;
+            outline: none;
+            width: 90%;
+            margin: 11px auto;
+            padding: 0px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +66,8 @@ if(!isset($_SESSION['Aemail']))
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Class</th>
-                    <th ></th>
-                   <th> 
+                
+                   <th colspan="2"> 
                 <a href="addStudent.php"><button class="green-button">Add</button></a>
             </th>
                   </tr>
