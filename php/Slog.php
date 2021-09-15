@@ -22,9 +22,9 @@ if (isset($_POST['Slogin'])) {
         session_start();
         $_SESSION['Semail'] = $user ;
         $r = mysqli_fetch_assoc($R);
-        echo "<script> alert('Successful') </script>"; 
         $_SESSION['Sid'] = $r['id']; // issue 
         $_SESSION['Sname'] = $r['name']; // issue 
+        $_SESSION['Sclass'] = $r['current_class']; // issue 
         header('Location: ../pages/studentLogged.php');
     } else {
         echo "<script> alert('Wrong Email Or Password.Please Try Again!!') </script>";

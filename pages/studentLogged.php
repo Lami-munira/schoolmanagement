@@ -27,7 +27,7 @@ if(!isset($_SESSION['Semail']))
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student | <?php echo $_SESSION['Sname']; ?></title>
+  <title>Student DashBoard | <?php echo $_SESSION['Sname']; ?></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
@@ -38,9 +38,7 @@ if(!isset($_SESSION['Semail']))
     <div class="container d-flex justify-content-between">
       <!-- Navbar logo -->
       <div class="top">
-        <a href="../index.html">
           <img src="../assets/ICON/LogoBKP.png" alt="">
-        </a>
       </div>
       <!-- Navbar elements -->
       <div>
@@ -52,7 +50,7 @@ if(!isset($_SESSION['Semail']))
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="studentProfile.html"><button class="green-button">Profile</button></a>
+                <a class="nav-link" href="studentProfile.php"><button class="green-button">Profile</button></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php"><button class="green-button">Logout</button></a>
@@ -66,6 +64,9 @@ if(!isset($_SESSION['Semail']))
     </div>
   </div>
   <!--Navbar end-->
+  <?php
+
+  ?>
   </div>
     <div class="container">
       <div class="row">

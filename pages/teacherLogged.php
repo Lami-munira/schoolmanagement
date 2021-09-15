@@ -51,7 +51,7 @@ if(!isset($_SESSION['Temail']))
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="studentProfile.html"><button class="green-button">Profile</button></a>
+                <a class="nav-link" href="teacherProfile.php"><button class="green-button">Profile</button></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php"><button class="green-button">Logout</button></a>
