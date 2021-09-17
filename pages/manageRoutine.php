@@ -112,11 +112,11 @@ if (!isset($_SESSION['Aemail'])) {
                                 <th colspan="5"> <?php echo  $tim; ?> </th>
                                 <td colspan="5">
                                     <a href="../php/editSchedule.php?id=<?= $id; ?>">
-                                        <button> Edit </button></a>
+                                        <button class='green-button'> Edit </button></a>
                                 </td>
                                 <td colspan="5">
                                     <a href="../php/delSchedule.php?id=<?= $id; ?>">
-                                        <button onclick="return confirm('Are you sure?');"> Delete </button></a>
+                                        <button class='green-button' onclick="return confirm('Are you sure?');"> Delete </button></a>
                                 </td>
                             </tr>
 
