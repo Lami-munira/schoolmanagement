@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['Temail']))
-{
-    header("Location: TeacherLogin.html");
+if (!isset($_SESSION['Temail'])) {
+  header("Location: TeacherLogin.html");
 }
 ?>
 <!DOCTYPE html>
@@ -27,8 +26,7 @@ if(!isset($_SESSION['Temail']))
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teacher | <?php echo $_SESSION['Tname']; ?> </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
 </head>
 
@@ -44,8 +42,7 @@ if(!isset($_SESSION['Temail']))
       <!-- Navbar elements -->
       <div>
         <nav class="navbar navbar-expand-lg navbar-light">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -66,19 +63,22 @@ if(!isset($_SESSION['Temail']))
   </div>
   <!--Navbar end-->
   </div>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <img src="../assets/TeacherLogged/classroom.png" alt="">
-        </div>
-        <div class="col info">  <center>
-          <ul type="none">
-            <li> <a href="viewRoutine.html"><button class="x">Class routine</button></a></li> <br> <br>
-            <li> <a href="studentSubject.html"><button class="x">Grade Students</button></a></li><br> <br>
-            <li> <a href="studentChangePassword.html"><button class="x">Change password</button></a></li>
-          </ul></center>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="../assets/TeacherLogged/classroom.png" alt="">
       </div>
+      <div class="col info">
+        <center>
+          <ul type="none">
+            <li> <a href="viewRoutine.php"><button class="x">Class routine</button></a></li> <br> <br>
+            <li> <a href="#"><button class="x">Attendence</button></a></li> <br> <br>
+            <li> <a href="studentSubject.html"><button class="x">Grade Students</button></a></li><br> <br>
+            <li> <a href="teacherChangePassword.php"><button class="x">Change password</button></a></li>
+          </ul>
+        </center>
+      </div>
+    </div>
 </body>
 
 </html>

@@ -73,8 +73,8 @@ if (!isset($_SESSION['Semail'])) {
       <div class="col info">
         <center>
           <ul type="none">
-            <li> <a href="viewRoutine.html"><button class="x">Class routine</button></a> <a href="studentSubject.php"><button class="x">Subjects</button></a></li><br> <br>
-            <li> <a href="classRecords.html"><button class="x">Class Records</button></a> <a href="studentChangePassword.html"><button class="x">Change password</button></a></li>
+            <li> <a href="viewClassRoutine.php"><button class="x">Class routine</button></a> <a href="studentSubject.php"><button class="x">Subjects</button></a></li><br> <br>
+            <li> <a href="classRecords.html"><button class="x">Class Records</button></a> <a href="studentChangePassword.php"><button class="x">Change password</button></a></li>
           </ul>
         </center>
       </div>
