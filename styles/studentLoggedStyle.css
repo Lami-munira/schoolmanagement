@@ -41,3 +41,13 @@ span{
 .searchBox{
     margin-top: 60px;
 }
+
+.pageSelector{
+    margin-top: 70px;
+}
+
+.pageSelector img {
+    width: 25%;
+    height: auto;
+    padding-top: 30px;
+}
