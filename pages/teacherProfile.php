@@ -95,8 +95,8 @@ if (!isset($_SESSION['Temail'])) {
       </tr>
 
     </table>
-    <button class="green-button">Edit</button>
-    <button class="green-button">Go back</button>
+    <a href = "../php/editTbyT.php" ><button class="green-button">Edit</button>
+    <a href = "teacherLogged.php" ><button class="green-button">Go back</button> </a>
   </center>
 </body>
 </html>

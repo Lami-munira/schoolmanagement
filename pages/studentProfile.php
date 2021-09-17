@@ -106,8 +106,8 @@ if (!isset($_SESSION['Semail'])) {
       </tr>
 
     </table>
-    <button class="green-button">Edit</button>
-    <button class="green-button">Go back</button>
+    <a href = "../php/editSbyS.php" ><button class="green-button">Edit</button>
+    <a href = "studentLogged.php" ><button class="green-button">Go back</button> </a>
   </center>
 </body>
 
