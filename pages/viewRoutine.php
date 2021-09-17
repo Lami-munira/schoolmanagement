@@ -1,15 +1,16 @@
 <?php
 session_start();
 if (!isset($_SESSION['Temail'])) {
-  header("Location: teacherLogin.html");
+    header("Location: teacherLogin.html");
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
-<style>
+
+    <style>
         table {
             font-style: italic;
             border: 6px solid #380505;
@@ -34,8 +35,9 @@ if (!isset($_SESSION['Temail'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
 </head>
+
 <body>
-<div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-between">
         <!-- Navbar logo -->
         <div class="top">
             <a href="../index.html">
@@ -62,60 +64,64 @@ if (!isset($_SESSION['Temail'])) {
         </div>
         <!--Navbar end-->
     </div><br> <br>
-<center>
-            <div class="rou1">
-                <table border="1" cellspacing="0">
-                    <thead>
-                        <th colspan="5"> Class </th>
-                        <th colspan="5"> Subject Name</th>
-                        <th colspan="5"> Day1 </th>
-                        <th colspan="5"> Day2 </th>
-                        <th colspan="5"> Time </th>
-                        <th colspan="10"><a href="../php/addSchedule.php"><button class="green-button">Add</button></a>
-                        </th>
-                    </thead>
-                    <tbody id="tmp">
-                        <?php
-                        include('../php/connection.php');
-                        $viwU = "SELECT * FROM schedule s join subject sb on sb.id = s.subid order by s.cid , s.day1 , s.time;"; // 0 or many value return korbe 
-                        $run = mysqli_query($conn, $viwU); // associative array and array type
 
-                        while ($x = mysqli_fetch_array($run)) { //
-                            $cid = $x[1];
-                            $id = $x[0];
-                            $sname = $x[7];
-                            $sid = $x[2];
-                            $d1 = $x[3];
-                            $d2 = $x[4];
-                            $tim = $x[5];
-                        ?>
 
-                            <tr>
-                                <th colspan="5"> <?php echo  $cid; ?> </th>
-                                <th colspan="5"> <?php echo  $sname; ?> </th>
-                                <th colspan="5"> <?php echo  $d1; ?> </th>
-                                <th colspan="5"> <?php echo  $d2; ?> </th>
-                                <th colspan="5"> <?php echo  $tim; ?> </th>
-                                <td colspan="5">
-                                    <a href="../php/editSchedule.php?id=<?= $id; ?>">
-                                        <button> Edit </button></a>
-                                </td>
-                                <td colspan="5">
-                                    <a href="../php/delSchedule.php?id=<?= $id; ?>">
-                                        <button onclick="return confirm('Are you sure?');"> Delete </button></a>
-                                </td>
-                            </tr>
+    <center>
+    <?php
 
-                        <?php
-                        }
-                        ?>
-                    </tbody>
+    include('../php/connection.php');
+    $v = "SELECT distinct cid FROM schedule order by cid;"; // 0 or many value return korbe 
+    $r = mysqli_query($conn, $v); // associative array and array type
+    while($lam = mysqli_fetch_array($r)){
+        $cls = $lam[0];
+    ?>
+    <h1> <b>Class <?php echo $cls ; ?> </b>   </h1></a>
+                        <br>
+  
+        <div class="rou1">
+            <table border="1" cellspacing="0">
+                <thead>
+                    <th colspan="5"> Subject Name</th>
+                    <th colspan="5"> Day1 </th>
+                    <th colspan="5"> Day2 </th>
+                    <th colspan="5"> Time </th>
+                </thead>
+                <tbody id="tmp">
+                    <?php
+                    include('../php/connection.php');
+                    $viwU = "SELECT * FROM schedule s join subject sb on sb.id = s.subid where s.cid = '$cls' order by s.day1 , s.time ;"; // 0 or many value return korbe 
+                    $run = mysqli_query($conn, $viwU); // associative array and array type
 
-                    <tbody id="searchR"></tbody>
-                </table>
-        </center>
+                    while ($x = mysqli_fetch_array($run)) { //
+                        $id = $x[0];
+                        $sname = $x[7];
+                        $sid = $x[2];
+                        $d1 = $x[3];
+                        $d2 = $x[4];
+                        $tim = $x[5];
+                    ?>
+
+                        <tr>
+                            <th colspan="5"> <?php echo  $sname; ?> </th>
+                            <th colspan="5"> <?php echo  $d1; ?> </th>
+                            <th colspan="5"> <?php echo  $d2; ?> </th>
+                            <th colspan="5"> <?php echo  $tim; ?> </th>
+                        </tr>
+
+                    <?php
+                    }
+                    ?>
+                </table><br> <br>
+            <?php
+    }
+    ?>
+    
+
     <div class="container back-btn">
         <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
     </div>
+    <br> <br><br> <br></center>
+
 </body>
+
 </html>

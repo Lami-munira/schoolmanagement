@@ -94,6 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <!--Navbar end-->
     </div><br> <br>
+    <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="../assets/padlock.png" alt="">
+      </div>
     <?php
       $idd = $_SESSION['Tid'];
       ?>
@@ -114,5 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <button name="tchange" class="green-button">Submit</button>
             <button name="back" class="green-button">Go back</button>
         </form>
+      </div>
+    </div>
+    </div>
 </body>
 </html>
