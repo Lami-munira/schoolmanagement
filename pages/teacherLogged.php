@@ -63,7 +63,7 @@ if (!isset($_SESSION['Temail'])) {
   </div>
   <!--Navbar end-->
   </div>
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col">
         <img src="../assets/TeacherLogged/classroom.png" alt="">
@@ -78,7 +78,47 @@ if (!isset($_SESSION['Temail'])) {
           </ul>
         </center>
       </div>
+    </div> -->
+
+    <!-- Changes -->
+    <div class="container pageSelector">
+    <div class="card-group">
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/routine.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="viewClassRoutine.php">
+            <h5 class="card-title">Class routine</h5>
+          </a>
+        </div>
+      </div>
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/books.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="studentSubject.php">
+            <h5 class="card-title">Attendence</h5>
+          </a>
+        </div>
+      </div>
     </div>
+    <div class="card-group">
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/dossier.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="studentSubject.html">
+            <h5 class="card-title">Grade students</h5>
+          </a>
+        </div>
+      </div>
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/password.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="teacherChangePassword.php">
+            <h5 class="card-title">Change password</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
 </body>
 
 </html>
