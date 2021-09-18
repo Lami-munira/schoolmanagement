@@ -76,7 +76,7 @@ if (!isset($_SESSION['Semail'])) {
       <div class="card text-center">
         <img class="mx-auto d-block" src="../assets/StudentLogged/dossier.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="classRecords.html">
+          <a href="studentsclassrecord.php">
             <h5 class="card-title">Class records</h5>
           </a>
         </div>

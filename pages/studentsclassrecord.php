@@ -49,60 +49,46 @@ if (!isset($_SESSION['Semail'])) {
   <?php
   include("../php/connection.php");
   $id = $_SESSION['Sid'];
-  $viwU = "select * from student where id = '$id';";
+  $viwU = "select * from studentsclassrecord where studentID = '$id';";
   $run = mysqli_query($conn, $viwU);
   $x = mysqli_fetch_assoc($run);
-  $name = $x['name'];
-  $gender = $x['gender'];
-  $email = $x['email'];
-  $class = $x['current_class'];
-  $dob = $x['dob'];
-  $address = $x['address'];
-  $phone = $x['phone'];
+  $total_attendence = $x['total_attendence'];
+  $total_grade = $x['total_grade'];
+  $grade = $x['grade'];
+  $finishing_year = $x['finishing_year'];
+  $starting_year = $x['starting_year'];
   ?>
   <br> <br>
   <center>
     <table>
       <tr>
-        <td> Name: </td>
+        <td> Total attendance: </td>
         <td colspan="10"> </td>
-        <td> <?php echo $name; ?> </td>
+        <td> <?php echo $total_attendence; ?> </td>
       </tr>
 
       <tr>
-        <td> Email: </td>
+        <td> Total grade: </td>
         <td colspan="10"> </td>
-        <td> <?php echo $email; ?> </td>
+        <td> <?php echo $total_grade; ?> </td>
       </tr>
 
       <tr>
-        <td> Phone: </td>
+        <td> Grade: </td>
         <td colspan="10"> </td>
-        <td> <?php echo $phone; ?> </td>
+        <td> <?php echo $grade; ?> </td>
       </tr>
 
       <tr>
-        <td> Address: </td>
+        <td> Starting year: </td>
         <td colspan="10"> </td>
-        <td> <?php echo $address; ?> </td>
+        <td> <?php echo $starting_year; ?> </td>
       </tr>
 
       <tr>
-        <td> Gender: </td>
+        <td> Finishing year: </td>
         <td colspan="10"> </td>
-        <td> <?php echo $gender; ?> </td>
-      </tr>
-
-      <tr>
-        <td> Date of Birth : </td>
-        <td colspan="10"> </td>
-        <td> <?php echo $dob; ?> </td>
-      </tr>
-
-      <tr>
-        <td> Current Class: </td>
-        <td colspan="10"> </td>
-        <td> <?php echo $class; ?> </td>
+        <td> <?php echo $finishing_year; ?> </td>
       </tr>
 
     </table>
