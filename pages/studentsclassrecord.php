@@ -52,6 +52,7 @@ if (!isset($_SESSION['Semail'])) {
   $viwU = "select * from studentsclassrecord where studentID = '$id';";
   $run = mysqli_query($conn, $viwU);
   $x = mysqli_fetch_assoc($run);
+  $class_name = $x['classID'];
   $total_attendence = $x['total_attendence'];
   $total_grade = $x['total_grade'];
   $grade = $x['grade'];
@@ -97,6 +98,7 @@ if (!isset($_SESSION['Semail'])) {
     <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Class</th>
                         <th scope="col">Total attendance</th>
                         <th scope="col">Total grade </th>
                         <th scope="col">Grade</th>
@@ -107,6 +109,7 @@ if (!isset($_SESSION['Semail'])) {
                 </thead>
                 <tbody id="tmp">
                   <tr>
+                    <th> <?php echo  $class_name ?> </th>
                     <th> <?php echo  $total_attendence; ?> </th>
                     <th> <?php echo  $total_grade; ?> </th>
                     <th> <?php echo  $grade; ?> </th>
