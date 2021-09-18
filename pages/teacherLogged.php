@@ -8,7 +8,7 @@ if (!isset($_SESSION['Temail'])) {
 <html lang="en">
 
 <head>
-  <style>
+  <!-- <style>
     .x {
       background-color: rgb(33, 181, 115);
       margin-top: 10px;
@@ -21,7 +21,7 @@ if (!isset($_SESSION['Temail'])) {
       cursor: pointer;
 
     }
-  </style>
+  </style> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

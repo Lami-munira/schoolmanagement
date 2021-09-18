@@ -59,8 +59,8 @@ if (!isset($_SESSION['Semail'])) {
   $starting_year = $x['starting_year'];
   ?>
   <br> <br>
-  <center>
-    <table>
+  <div class='container'>
+    <!-- <table>
       <tr>
         <td> Total attendance: </td>
         <td colspan="10"> </td>
@@ -91,10 +91,35 @@ if (!isset($_SESSION['Semail'])) {
         <td> <?php echo $finishing_year; ?> </td>
       </tr>
 
-    </table>
+    </table> -->
+
+    <!-- --From now will be modified-- -->
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Total attendance</th>
+                        <th scope="col">Total grade </th>
+                        <th scope="col">Grade</th>
+                        <th scope="col">Starting year</th>
+                        <th scope="col">Finishing year</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="tmp">
+                  <tr>
+                    <th> <?php echo  $total_attendence; ?> </th>
+                    <th> <?php echo  $total_grade; ?> </th>
+                    <th> <?php echo  $grade; ?> </th>
+                    <th> <?php echo  $starting_year; ?> </th>      
+                    <th> <?php echo  $finishing_year; ?> </th>      
+                  </tr>
+                </tbody>
+
+                <tbody id="searchR"></tbody>
+            </table>
     <a href = "../php/editSbyS.php" ><button class="green-button">Edit</button>
     <a href = "studentLogged.php" ><button class="green-button">Go back</button> </a>
-  </center>
+</div>
 </body>
 
 </html>
