@@ -74,7 +74,10 @@ if (!isset($_SESSION['Semail'])) {
                         $ce = "select CGPA , grd from grade where id = '$sb' ;";
                         $rp = mysqli_query($conn, $ce);
 
-                        if (mysqli_num_rows($rp) == 0) $y = 'N/A';
+                        if (mysqli_num_rows($rp) == 0){
+                             $ye = 'N/A';
+                             $y = 'N/A';
+                        }
                         else {
                             $xy = mysqli_fetch_array($rp);
                             $y = $xy[0];
