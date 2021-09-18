@@ -61,10 +61,10 @@ if (!isset($_SESSION['Semail'])) {
             </nav>
         </div>
         <!--Navbar end-->
-    </div><br> <br>
+    </div><br>
     <center>
     <h1> CLass Routine of CLass: <?php echo $_SESSION['Sclass']; ?> </h1>
-    <br> <br>
+    <br>
     </center>
     <center>
         <div class="rou1">

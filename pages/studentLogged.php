@@ -9,20 +9,6 @@ if (!isset($_SESSION['Semail'])) {
 <html lang="en">
 
 <head>
-  <style>
-    .x {
-      background-color: rgb(33, 181, 115);
-      margin-top: 10px;
-      width: 200px;
-      height: 100px;
-      color: white;
-      font-size: 20px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-
-    }
-  </style>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,20 +51,47 @@ if (!isset($_SESSION['Semail'])) {
 
   ?>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <img src="../assets/StudentLogged/students.png" alt="">
+
+    <!-- Changes -->
+    <div class="container pageSelector">
+    <div class="card-group">
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/routine.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="viewClassRoutine.php">
+            <h5 class="card-title">Class routine</h5>
+          </a>
+        </div>
       </div>
-      <div class="col info">
-        <center>
-          <ul type="none">
-            <li> <a href="viewClassRoutine.php"><button class="x">Class routine</button></a> <a href="studentSubject.php"><button class="x">Subjects</button></a></li><br> <br>
-            <li> <a href="classRecords.html"><button class="x">Class Records</button></a> <a href="studentChangePassword.php"><button class="x">Change password</button></a></li>
-          </ul>
-        </center>
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/books.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="studentSubject.php">
+            <h5 class="card-title">Subjects</h5>
+          </a>
+        </div>
       </div>
     </div>
+    <div class="card-group">
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/dossier.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="classRecords.html">
+            <h5 class="card-title">Class records</h5>
+          </a>
+        </div>
+      </div>
+      <div class="card text-center">
+        <img class="mx-auto d-block" src="../assets/StudentLogged/password.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="studentChangePassword.php">
+            <h5 class="card-title">Change password</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
