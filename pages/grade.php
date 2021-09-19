@@ -51,13 +51,15 @@ if (!isset($_SESSION['Temail'])) {
     <center>
         <h1>Students: </h1><br> <br>
     </center>
-    <center>
+    <div class='container'>
         <form action="gradeupdate.php?id=<?= $clasSub; ?>" method="POST">
-            <table>
+            <table class='table'>
                 <thead>
-                    <th colspan="5"> Student ID</th>
-                    <th colspan="5"> Student Name</th>
-                    <th colspan="10"> Grade </th>
+                    <tr>
+                        <th scope="col"> Student ID</th>
+                        <th scope="col"> Student Name</th>
+                        <th scope="col">Grade</th>
+                    </tr>
                 </thead>
                 <?php
                 include("../php/connection.php");
@@ -74,7 +76,7 @@ if (!isset($_SESSION['Temail'])) {
                         $sname = $lam[0];
                         $sid = $lam[1];
                     ?>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="5"> <?php echo  $sid; ?> </td>
                             <td colspan="5"> <?php echo  $sname; ?> </td>
                             <td colspan="10">
@@ -88,20 +90,39 @@ if (!isset($_SESSION['Temail'])) {
                                     <option value="I">I</option>
                                 </select>
                             </td>
-                        </tr>
+                        </tr> -->
+
+                        <tbody>
+                            <tr>
+                                <th><?php echo  $sid; ?></th>
+                                <th><?php echo  $sname; ?></th>
+                                <th>
+                                <select name='student[]'> ('A','A-','B','B-','C','D','I')
+                                    <option value="A">A</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B">B</option>
+                                    <option value="B-">B-</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="I">I</option>
+                                </select>
+                                </th>
+                            </tr>
+                        </tbody>
                 <?php
                     }
                 }
                 ?>
             </table>
-            <input type="submit" name="submit" value="submit">
+            <div class="container back-btn">
+                <a href=""><button class="green-button">Submit</button></a>
+                <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
+            </div>
         </form><br> <br>
 
-        <div class="container back-btn">
-            <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
-        </div>
+        
         <br> <br><br> <br>
-    </center>
+            </div>
 </body>
 
 </html>
