@@ -13,7 +13,7 @@ if (!isset($_SESSION['Semail'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>Class Records</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
 </head>
@@ -46,19 +46,7 @@ if (!isset($_SESSION['Semail'])) {
     <!--Navbar end-->
   </div>
 
-  <?php
-  include("../php/connection.php");
-  $id = $_SESSION['Sid'];
-  $viwU = "select * from studentsclassrecord where studentID = '$id';";
-  $run = mysqli_query($conn, $viwU);
-  $x = mysqli_fetch_assoc($run);
-  $class_name = $x['classID'];
-  $total_attendence = $x['total_attendence'];
-  $total_grade = $x['total_grade'];
-  $grade = $x['grade'];
-  $finishing_year = $x['finishing_year'];
-  $starting_year = $x['starting_year'];
-  ?>
+
   <br> <br>
   <div class='container'>
     <!-- <table>
@@ -96,33 +84,45 @@ if (!isset($_SESSION['Semail'])) {
 
     <!-- --From now will be modified-- -->
     <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Class</th>
-                        <th scope="col">Total attendance</th>
-                        <th scope="col">Total grade </th>
-                        <th scope="col">Grade</th>
-                        <th scope="col">Starting year</th>
-                        <th scope="col">Finishing year</th>
-                        
-                    </tr>
-                </thead>
-                <tbody id="tmp">
-                  <tr>
-                    <th> <?php echo  $class_name ?> </th>
-                    <th> <?php echo  $total_attendence; ?> </th>
-                    <th> <?php echo  $total_grade; ?> </th>
-                    <th> <?php echo  $grade; ?> </th>
-                    <th> <?php echo  $starting_year; ?> </th>      
-                    <th> <?php echo  $finishing_year; ?> </th>      
-                  </tr>
-                </tbody>
+      <thead>
+        <tr>
+          <th scope="col">Class</th>
+          <th scope="col">Total attendance</th>
+          <th scope="col">Total grade </th>
+          <th scope="col">Grade</th>
+          <th scope="col">Starting year</th>
+          <th scope="col">Finishing year</th>
 
-                <tbody id="searchR"></tbody>
-            </table>
-    <a href = "../php/editSbyS.php" ><button class="green-button">Edit</button>
-    <a href = "studentLogged.php" ><button class="green-button">Go back</button> </a>
-</div>
+        </tr>
+      </thead>
+      <?php
+      include("../php/connection.php");
+      $id = $_SESSION['Sid'];
+      $viwU = "select * from studentsclassrecord where studentID = '$id';";
+      $run = mysqli_query($conn, $viwU);
+      // $x = mysqli_fetch_assoc($run);
+      while ($x = mysqli_fetch_array($run)) {
+      $class_name = $x['classID'];
+      $total_attendence = $x['total_attendence'];
+      $total_grade = $x['total_grade'];
+      $grade = $x['grade'];
+      $finishing_year = $x['finishing_year'];
+      $starting_year = $x['starting_year'];
+      ?>
+      <tr>
+        <th> <?php echo  $class_name ?> </th>
+        <th> <?php echo  $total_attendence; ?> </th>
+        <th> <?php echo  $total_grade; ?> </th>
+        <th> <?php echo  $grade; ?> </th>
+        <th> <?php echo  $starting_year; ?> </th>
+        <th> <?php echo  $finishing_year; ?> </th>
+      </tr>
+      <?php
+      }
+      ?>
+    </table>
+      <a href="studentLogged.php"><button class="green-button">Go back</button> </a>
+  </div>
 </body>
 
 </html>
