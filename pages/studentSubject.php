@@ -33,10 +33,10 @@ if (!isset($_SESSION['Semail'])) {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="studentLogged.php">Student</a>
+                        <a class="nav-link" href="studentLogged.php"><button class="green-button">Home</button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
+                            <a class="nav-link" href="logout.php"><button class="green-button">Logout</button></a>
                         </li>
                     </ul>
                 </div>
