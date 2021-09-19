@@ -50,7 +50,7 @@ if (!isset($_SESSION['Temail'])) {
     <?php $clasSub = $_GET['id']; ?>
     <center>
         <h1>Students: </h1><br> <br>
-    </center>
+
     <div class='container'>
         <form action="gradeupdate.php?id=<?= $clasSub; ?>" method="POST">
             <table class='table'>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['Temail'])) {
             </div>
         </form><br> <br>
 
-
+        </center>
         <br> <br><br> <br>
     </div>
 </body>

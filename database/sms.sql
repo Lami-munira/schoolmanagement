@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2021 at 07:03 AM
+-- Generation Time: Sep 19, 2021 at 07:50 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -109,13 +109,31 @@ CREATE TABLE `attendence` (
 --
 
 INSERT INTO `attendence` (`stdid`, `clsid`, `date`, `status`) VALUES
-(1, 1, '2021-09-01', 'a'),
+(1, 1, '2021-09-01', 'p'),
+(1, 1, '2021-09-02', 'p'),
+(1, 1, '2021-09-03', 'p'),
 (1, 1, '2021-09-07', 'p'),
 (1, 1, '2021-09-15', 'a'),
 (1, 1, '2021-09-29', 'p'),
+(2, 1, '2021-09-01', 'p'),
+(2, 1, '2021-09-02', 'p'),
+(2, 1, '2021-09-03', 'p'),
 (2, 1, '2021-09-07', 'p'),
 (2, 1, '2021-09-14', 'p'),
-(2, 1, '2021-09-21', 'a');
+(2, 1, '2021-09-21', 'a'),
+(3, 1, '2021-09-01', 'a'),
+(3, 1, '2021-09-02', 'p'),
+(3, 1, '2021-09-03', 'p'),
+(4, 1, '2021-09-01', 'p'),
+(4, 1, '2021-09-02', 'p'),
+(4, 1, '2021-09-03', 'p'),
+(20, 7, '2021-08-31', 'p'),
+(20, 7, '2021-09-02', 'p'),
+(20, 7, '2021-09-07', 'p'),
+(20, 7, '2021-09-11', 'a'),
+(20, 7, '2021-09-20', 'p'),
+(20, 7, '2021-10-02', 'p'),
+(20, 7, '2021-10-07', 'p');
 
 -- --------------------------------------------------------
 
@@ -160,8 +178,12 @@ CREATE TABLE `grade` (
 INSERT INTO `grade` (`student`, `id`, `grd`, `cgpa`, `date`) VALUES
 (1, 17, 'A', '4.00', '2021-09-16'),
 (1, 18, 'A', '4.00', '2021-09-16'),
-(1, 19, 'A', '4.00', '2021-09-16'),
-(1, 20, 'A-', '3.70', '2021-09-16');
+(1, 19, 'A-', '3.70', '2021-09-16'),
+(1, 20, 'A-', '3.70', '2021-09-16'),
+(2, 19, 'A-', '3.70', '2021-09-19'),
+(3, 19, 'A-', '3.70', '2021-09-19'),
+(4, 19, 'A-', '3.70', '2021-09-19'),
+(5, 23, 'B-', '3.30', '2021-09-19');
 
 -- --------------------------------------------------------
 
@@ -269,7 +291,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `name`, `current_class`, `phone`, `email`, `gender`, `password`, `address`, `dob`) VALUES
-(1, 'Lamia Munira', 1, '0123456234', 'lamia@ieee.com', 'Female', 'oky', 'London', '2001-09-24'),
+(1, 'Lamia Munira', 1, '0123456234', 'lamia@ieee.com', 'Female', 'ws', 'London', '2001-09-24'),
 (2, 'Maisha', 1, '0123456', 'amin@ieee.com', 'Others', 'oky', 'London', '2001-05-30'),
 (3, 'Omi', 1, '0123456', 'omi@ieee.com', 'Others', 'oky', 'London', '2001-11-01'),
 (4, 'Tasnia', 1, '0123456', 'orni@ieee.com', 'Others', 'oky', 'London', '2001-06-15'),
@@ -278,7 +300,7 @@ INSERT INTO `student` (`id`, `name`, `current_class`, `phone`, `email`, `gender`
 (12, 'lamian', 2, '12345', 'lamia.munira@northsouth.edu', 'Others', 'SDK3y8a0', 'Mohammadpur i think', '2001-09-24'),
 (17, 'Sara', 2, '9831047134', 'sara@gmail.com', 'Female', 'k0TZ@WM9', 'London', '2000-09-01'),
 (18, 'Alex', 3, '0165723', 'alex@gm.com', 'Male', 'okay', 'USA', '2010-09-28'),
-(20, 'Sam', 7, '1234', 'sam@gm.com', 'Male', 'V3oA$mJd', 'Uttara', '2012-09-11');
+(20, 'Sam', 7, '1234', 'sam@gm.com', 'Male', 'hi', 'Uttara', '2012-09-11');
 
 --
 -- Triggers `student`
@@ -478,7 +500,7 @@ INSERT INTO `teacher` (`id`, `name`, `phone`, `email`, `gender`, `password`, `ad
 (2, 'Munira', '0123456', 'munira@gm.com', 'Female', 'okay', 'Mohammadpur', '2001-09-24'),
 (3, 'Tasnia', '0123456', 'tasnia@gm.com', 'Female', 'okay', 'Uttara', '2001-05-15'),
 (4, 'Maisha', '0123456', 'maisha@gm.com', 'Female', 'okay', 'Bashundhara', '2001-05-30'),
-(5, 'Taqi', '01552731548', 'taq@gm.com', 'Male', 'eRiuNrWL', 'Bashundhara', '2000-08-06');
+(5, 'Taqi', '01552731548', 'taqi@gm.com', 'Male', 'koi', 'Bashundhara', '2000-08-06');
 
 --
 -- Indexes for dumped tables

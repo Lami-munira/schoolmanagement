@@ -52,7 +52,7 @@ if (!isset($_SESSION['Temail'])) {
 <?php $clss = $_GET['id']; ?>
     <center>
         <h1>Students: </h1><br> <br>
-    </center>
+  
     <div class='container'>
         <form action="ii.php?id=<?= $clss;?>" method="POST">
         <input type="date" name="student[]" id="dob" placeholder="Enter date" value = "2021-09-20">
@@ -111,8 +111,8 @@ if (!isset($_SESSION['Temail'])) {
                 <input class="green-button" type="submit" name="Submit" value="Submit">
                 <input class="green-button" type="submit" name="back" value="Back">
             </div>
-        </form><br> <br>br> <br>
-
+        </form><br> <br> <br>
+        </center>
         
         <br> <br><br> <br>
             </div>
