@@ -108,10 +108,10 @@ if (!isset($_SESSION['Temail'])) {
                 ?>
             </table>
             <div class="container back-btn">
-            <a href=""><button class="green-button">Submit</button></a>
-            <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
-        </div>
-        </form><br> <br>
+                <input class="green-button" type="submit" name="Submit" value="Submit">
+                <input class="green-button" type="submit" name="back" value="Back">
+            </div>
+        </form><br> <br>br> <br>
 
         
         <br> <br><br> <br>

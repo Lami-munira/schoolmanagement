@@ -6,7 +6,11 @@ if (!isset($_SESSION['Temail'])) {
 ?>
 
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['back']))
+{
+    header("Location: teacherLogged.php");
+}
+if (isset($_POST['Submit'])) {
     include("../php/connection.php");
     $class = $_GET['id']; // INSERT INTO `attendence` (`stdid`, `clsid`, `date`, `status`) VALUES ('20', '7', '2021-09-11', 'p') on duplicate key UPDATE status = 'a';
 
