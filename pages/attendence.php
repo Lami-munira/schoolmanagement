@@ -1,3 +1,10 @@
+<?php // ?id=<?= $id;
+session_start();
+if (!isset($_SESSION['Temail'])) {
+    header("Location: TeacherLogin.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,40 +49,53 @@
     </div><br> <br>
 
 
-
+<?php $clss = $_GET['id']; ?>
     <center>
         <h1>Students: </h1><br> <br>
     </center>
     <center>
-<br> <br>
-        <form action="add.php" method="post">
-        <?php
-            include("../php/connection.php");
-            $tid = 3;
-            $class = 2;
-            $assigned = "SELECT * FROM studentsinclass where classID = '$class';";
-            $rex = mysqli_query($conn, $assigned);
-            if (mysqli_num_rows($rex) == 0) {
-            ?>
-                <tr>
-                    <td colspan="15"> No students have enrolled . . . </td>
-                </tr>
-            <?php
-            } else {
-                while ($lam = mysqli_fetch_array($rex)) {
-                    $cid = $lam[1];
-                    echo '<br>' ;
-                    echo $cid . ":  hi " ;
-            ?>
-            <input type="radio" name="test" value="value2"> Value 2
-            <input type="radio" name="test" value="value3"> Value 3
-            <?php
-                }
-            }
+        <form action="ii.php?id=<?= $clss;?>" method="POST">
+        <input type="date" name="student[]" id="dob" placeholder="Enter date" value = "2021-09-20">
+            <table>
+                <thead>
+                    <th colspan="5"> Student ID</th>
+                    <th colspan="10"> Status </th>
+                </thead>
+                <?php
+                include("../php/connection.php");
+                $tid = $_SESSION['Tid'];
+                $class = $_GET['id'];
+            
+                $assigned = "SELECT * FROM studentsinclass where classID = '$class' order by studentid ;";
+                $rex = mysqli_query($conn, $assigned);
+                if (mysqli_num_rows($rex) == 0) {
                 ?>
-                            <input type="submit" name="submit" value="submit">
+                    <tr>
+                        <td colspan="15"> No students have enrolled . . . </td>
+                    </tr>
+                    <?php
+                } else {
+                    while ($lam = mysqli_fetch_array($rex)) {
+                        $cid = $lam[1];
+                    ?>
+                        <tr>
+                            <td colspan="5"> <?php echo  $cid; ?> </td>
+                            <td colspan="10">
+                            <select name='student[]'>
+                            <option value="p">Present</option>
+                            <option value="a">Absent</option>
+                        </select>
+                            </td>
+                        </tr>
 
-        </form>
+                <?php
+                    }
+                }
+                ?>
+            </table>
+            <input type="submit" name="submit" value="submit">
+        </form><br> <br>
+
         <div class="container back-btn">
             <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
         </div>

@@ -1,4 +1,4 @@
-<?php
+<?php // ?id=<?= $id;
 session_start();
 if (!isset($_SESSION['Temail'])) {
   header("Location: TeacherLogin.html");
@@ -95,7 +95,7 @@ if (!isset($_SESSION['Temail'])) {
       <div class="card text-center">
         <img class="mx-auto d-block" src="../assets/StudentLogged/routine.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="viewClassRoutine.php">
+          <a href="viewRoutine.php">
             <h5 class="card-title">Class routine</h5>
           </a>
         </div>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['Temail'])) {
       <div class="card text-center">
         <img class="mx-auto d-block" src="../assets/StudentLogged/books.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="studentSubject.php">
+          <a href="classAssigned.php">
             <h5 class="card-title">Attendence</h5>
           </a>
         </div>
@@ -113,7 +113,7 @@ if (!isset($_SESSION['Temail'])) {
       <div class="card text-center">
         <img class="mx-auto d-block" src="../assets/StudentLogged/dossier.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="studentSubject.html">
+          <a href="subjectsAssigned.php">
             <h5 class="card-title">Grade students</h5>
           </a>
         </div>

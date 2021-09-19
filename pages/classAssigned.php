@@ -1,15 +1,39 @@
+<?php
+session_start();
+if (!isset($_SESSION['Temail'])) {
+    header("Location: teacherLogin.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+    <style>
+        table {
+            font-style: italic;
+            border: 6px solid #380505;
+            border-radius: 12px;
+            outline: none;
+            width: 90%;
+            margin: 11px auto;
+            padding: 0px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        th {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendence</title>
+    <title>Subjects</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
-    <link rel="stylesheet" href="../styles/style.css">
-
+    <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
 </head>
 
 <body>
@@ -43,44 +67,52 @@
 
 
 
+
     <center>
-        <h1>Students: </h1><br> <br>
+        <h1>Assigned Classes: </h1><br> <br>
     </center>
     <center>
-<br> <br>
-        <form action="add.php" method="post">
-        <?php
+        <table>
+            <thead>
+                <th colspan="5"> Class </th>
+                <th colspan="10"> </th>
+            </thead>
+
+
+            <?php
             include("../php/connection.php");
-            $tid = 3;
-            $class = 2;
-            $assigned = "SELECT * FROM studentsinclass where classID = '$class';";
+            $tid = $_SESSION['Tid'];
+            $assigned = "SELECT * FROM class where  classTeacherID = '$tid';";
             $rex = mysqli_query($conn, $assigned);
             if (mysqli_num_rows($rex) == 0) {
             ?>
                 <tr>
-                    <td colspan="15"> No students have enrolled . . . </td>
+                    <td colspan="20"> No classes have been assigned.... </td>
                 </tr>
-            <?php
+                <?php
             } else {
                 while ($lam = mysqli_fetch_array($rex)) {
-                    $cid = $lam[1];
-                    echo '<br>' ;
-                    echo $cid . ":  hi " ;
-            ?>
-            <input type="radio" name="test" value="value2"> Value 2
-            <input type="radio" name="test" value="value3"> Value 3
+                    $id = $lam[0];
+                ?>
+                    <tr>
+                        <th colspan="5"> <?php echo  $id; ?> </th>
+                        <th colspan="10"><a href="attendence.php?id=<?= $id;?>">
+                                <h5 class="card-title">Take Attendence</h5>
+                            </a></th>
+                    </tr>
+
             <?php
                 }
             }
-                ?>
-                            <input type="submit" name="submit" value="submit">
+            ?>
+        </table><br> <br>
 
-        </form>
         <div class="container back-btn">
             <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
         </div>
         <br> <br><br> <br>
     </center>
+
 </body>
 
 </html>
