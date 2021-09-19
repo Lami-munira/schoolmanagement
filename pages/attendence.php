@@ -53,13 +53,16 @@ if (!isset($_SESSION['Temail'])) {
     <center>
         <h1>Students: </h1><br> <br>
     </center>
-    <center>
+    <div class='container'>
         <form action="ii.php?id=<?= $clss;?>" method="POST">
         <input type="date" name="student[]" id="dob" placeholder="Enter date" value = "2021-09-20">
-            <table>
+            <table class='table'>
+                <br><br>
                 <thead>
-                    <th colspan="5"> Student ID</th>
-                    <th colspan="10"> Status </th>
+                    <tr>
+                        <th scope="col"> Student ID</th>
+                        <th scope="col"> Status</th>
+                    </tr>
                 </thead>
                 <?php
                 include("../php/connection.php");
@@ -78,7 +81,7 @@ if (!isset($_SESSION['Temail'])) {
                     while ($lam = mysqli_fetch_array($rex)) {
                         $cid = $lam[1];
                     ?>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="5"> <?php echo  $cid; ?> </td>
                             <td colspan="10">
                             <select name='student[]'>
@@ -86,21 +89,33 @@ if (!isset($_SESSION['Temail'])) {
                             <option value="a">Absent</option>
                         </select>
                             </td>
-                        </tr>
+                        </tr> -->
+                        <tbody>
+                            <tr>
+                                <th><?php echo  $cid; ?></th>
+                                <th>
+                                    <select name='student[]'>
+                                        <option value="p">Present</option>
+                                        <option value="a">Absent</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </tbody>
 
                 <?php
                     }
                 }
                 ?>
             </table>
-            <input type="submit" name="submit" value="submit">
-        </form><br> <br>
-
-        <div class="container back-btn">
+            <div class="container back-btn">
+            <a href=""><button class="green-button">Submit</button></a>
             <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
         </div>
+        </form><br> <br>
+
+        
         <br> <br><br> <br>
-    </center>
+            </div>
 </body>
 
 </html>
