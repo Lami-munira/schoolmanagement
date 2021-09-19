@@ -1,3 +1,10 @@
+<?php // ?id=<?= $id;
+session_start();
+if (!isset($_SESSION['Temail'])) {
+    header("Location: TeacherLogin.html");
+}
+?>
+
 <?php
 if(isset($_POST['submit'])){
     include("../php/connection.php");

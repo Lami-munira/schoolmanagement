@@ -1,47 +1,29 @@
 <?php // ?id=<?= $id;
 session_start();
 if (!isset($_SESSION['Temail'])) {
-  header("Location: TeacherLogin.html");
+    header("Location: TeacherLogin.html");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-    <style>
-        table {
-            font-style: italic;
-            border: 6px solid #380505;
-            border-radius: 12px;
-            outline: none;
-            width: 90%;
-            margin: 11px auto;
-            padding: 0px;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        th {
-            width: 100px;
-            height: 100px;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/studentLoggedStyle.css">
+    <link rel="stylesheet" href="../styles/adminLoggedStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
     <div class="container d-flex justify-content-between">
         <!-- Navbar logo -->
         <div class="top">
-            <a href="../index.html">
-                <img src="../assets/ICON/LogoBKP.png" alt="">
-            </a>
+            <img src="../assets/ICON/LogoBKP.png" alt="">
         </div>
         <!-- Navbar elements -->
         <div>
@@ -65,55 +47,55 @@ if (!isset($_SESSION['Temail'])) {
     </div><br> <br>
 
 
-
+    <?php $clasSub = $_GET['id']; ?>
     <center>
         <h1>Students: </h1><br> <br>
     </center>
     <center>
-        <table>
-            <thead>
-                <th colspan="5"> Student ID</th>
-                <th colspan="10"> </th>
-            </thead>
-
-
-            <?php
-            include("../php/connection.php");
-            $tid = $_SESSION['Tid'];
-            $class = $_GET['id'];
-            $assigned = "SELECT * FROM studentsinclass where classID = '$class';";
-            $rex = mysqli_query($conn, $assigned);
-            if (mysqli_num_rows($rex) == 0) {
-            ?>
-                <tr>
-                    <td colspan="15"> No students have enrolled  . . . </td>
-                </tr>
+        <form action="gradeupdate.php?id=<?= $clasSub; ?>" method="POST">
+            <table>
+                <thead>
+                    <th colspan="5"> Student ID</th>
+                    <th colspan="5"> Student Name</th>
+                    <th colspan="10"> Grade </th>
+                </thead>
                 <?php
-            } else {
-                while ($lam = mysqli_fetch_array($rex)) {
-                    $cid = $lam[1];
+                include("../php/connection.php");
+                $assigned = "SELECT s.name,s.id FROM subjectsinclass sc join student s on sc.classID = s.current_class where sc.id = '$clasSub order by s.id,s.name';";
+                $rex = mysqli_query($conn, $assigned);
+                if (mysqli_num_rows($rex) == 0) {
                 ?>
                     <tr>
-                        <th colspan="5"> <?php echo  $cid; ?> </th>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Default radio
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Default checked radio
-                            </label>
-                        </div>
+                        <td colspan="15"> No students have enrolled . . . </td>
                     </tr>
-
-            <?php
+                    <?php
+                } else {
+                    while ($lam = mysqli_fetch_array($rex)) {
+                        $sname = $lam[0];
+                        $sid = $lam[1];
+                    ?>
+                        <tr>
+                            <td colspan="5"> <?php echo  $sid; ?> </td>
+                            <td colspan="5"> <?php echo  $sname; ?> </td>
+                            <td colspan="10">
+                                <select name='student[]'> ('A','A-','B','B-','C','D','I')
+                                    <option value="A">A</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B">B</option>
+                                    <option value="B-">B-</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="I">I</option>
+                                </select>
+                            </td>
+                        </tr>
+                <?php
+                    }
                 }
-            }
-            ?>
-        </table><br> <br>
+                ?>
+            </table>
+            <input type="submit" name="submit" value="submit">
+        </form><br> <br>
 
         <div class="container back-btn">
             <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
