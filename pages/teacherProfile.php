@@ -56,47 +56,53 @@ if (!isset($_SESSION['Temail'])) {
   $phone = $x['phone'];
   ?>
   <br> <br>
-  <center>
+  <div class="row">
+  <div class='col-md-6 profile'>
+    <img src="../assets/Profile/class.png" alt="">
+  </div>
+  <div class='col-md-6'>
     <table>
       <tr>
-        <td> Name </td>
+        <td> Name: </td>
         <td colspan="10"> </td>
         <td> <?php echo $name; ?> </td>
       </tr>
 
       <tr>
-        <td> Email </td>
+        <td> Email: </td>
         <td colspan="10"> </td>
         <td> <?php echo $email; ?> </td>
       </tr>
 
       <tr>
-        <td> Phone </td>
+        <td> Phone: </td>
         <td colspan="10"> </td>
         <td> <?php echo $phone; ?> </td>
       </tr>
 
       <tr>
-        <td> Address </td>
+        <td> Address: </td>
         <td colspan="10"> </td>
         <td> <?php echo $address; ?> </td>
       </tr>
 
       <tr>
-        <td> Gender </td>
+        <td> Gender: </td>
         <td colspan="10"> </td>
         <td> <?php echo $gender; ?> </td>
       </tr>
 
       <tr>
-        <td> Date of Birth : </td>
+        <td> Date of Birth: </td>
         <td colspan="10"> </td>
         <td> <?php echo $dob; ?> </td>
       </tr>
 
     </table>
+    <br>
     <a href = "../php/editTbyT.php" ><button class="green-button">Edit</button>
     <a href = "teacherLogged.php" ><button class="green-button">Go back</button> </a>
-  </center>
+</div>
+</div>
 </body>
 </html>

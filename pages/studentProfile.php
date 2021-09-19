@@ -98,7 +98,7 @@ if (!isset($_SESSION['Semail'])) {
       </tr>
 
       <tr>
-        <td> Date of Birth : </td>
+        <td> Date of Birth: </td>
         <td colspan="10"> </td>
         <td> <?php echo $dob; ?> </td>
       </tr>
