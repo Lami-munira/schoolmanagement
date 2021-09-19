@@ -61,7 +61,11 @@ if (!isset($_SESSION['Semail'])) {
   $phone = $x['phone'];
   ?>
   <br> <br>
-  <center>
+  <div class="row">
+  <div class='col-md-6 profile'>
+    <img src="../assets/Profile/students.png" alt="">
+  </div>
+  <div class='col-md-6'>
     <table>
       <tr>
         <td> Name: </td>
@@ -106,9 +110,11 @@ if (!isset($_SESSION['Semail'])) {
       </tr>
 
     </table>
+    <br>
     <a href = "../php/editSbyS.php" ><button class="green-button">Edit</button>
     <a href = "studentLogged.php" ><button class="green-button">Go back</button> </a>
-  </center>
+</div>
+</div>
 </body>
 
 </html>

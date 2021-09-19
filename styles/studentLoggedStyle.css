@@ -51,3 +51,9 @@ span{
     height: auto;
     padding-top: 30px;
 }
+
+.profile img{
+    padding-top: 0px;
+    max-width: 35%;
+    margin-left: 300px;
+}
