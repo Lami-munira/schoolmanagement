@@ -97,15 +97,15 @@ if (!isset($_SESSION['Temail'])) {
                                 <th><?php echo  $sid; ?></th>
                                 <th><?php echo  $sname; ?></th>
                                 <th>
-                                <select name='student[]'> ('A','A-','B','B-','C','D','I')
-                                    <option value="A">A</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B">B</option>
-                                    <option value="B-">B-</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="I">I</option>
-                                </select>
+                                    <select name='student[]'> ('A','A-','B','B-','C','D','I')
+                                        <option value="A">A</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B">B</option>
+                                        <option value="B-">B-</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="I">I</option>
+                                    </select>
                                 </th>
                             </tr>
                         </tbody>
@@ -115,14 +115,14 @@ if (!isset($_SESSION['Temail'])) {
                 ?>
             </table>
             <div class="container back-btn">
-                <a href=""><button class="green-button">Submit</button></a>
-                <a href="teacherLogged.php"><button class="green-button">Go back</button></a>
+                <input class="green-button" type="submit" name="Submit" value="Submit">
+                <input class="green-button" type="submit" name="back" value="Back">
             </div>
         </form><br> <br>
 
-        
+
         <br> <br><br> <br>
-            </div>
+    </div>
 </body>
 
 </html>
