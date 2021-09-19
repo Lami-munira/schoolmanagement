@@ -9,6 +9,15 @@ if (!isset($_SESSION['Semail'])) {
 <html lang="en">
 
 <head>
+  <style>
+.mr-auto, .mx-auto {
+    padding: 20px;
+    margin-right: auto!important;
+    width: 200px;
+    height: 200px;
+}
+
+    </style>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

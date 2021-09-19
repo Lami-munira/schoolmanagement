@@ -8,6 +8,15 @@ if (!isset($_SESSION['Temail'])) {
 <html lang="en">
 
 <head>
+<style>
+.mr-auto, .mx-auto {
+    padding: 20px;
+    margin-right: auto!important;
+    width: 200px;
+    height: 200px;
+}
+
+    </style>
   <!-- <style>
     .x {
       background-color: rgb(33, 181, 115);

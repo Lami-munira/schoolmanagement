@@ -8,7 +8,7 @@ if (!isset($_SESSION['Semail'])) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['back'])) {
-        header('Location: ../pages/studenLogged.php');
+        header('Location: ../pages/studentLogged.php');
     }
     if (isset($_POST['schange'])) {
         include("../php/connection.php");
