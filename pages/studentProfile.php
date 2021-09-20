@@ -59,6 +59,10 @@ if (!isset($_SESSION['Semail'])) {
   $viwU = "select * from student where id = '$id';";
   $run = mysqli_query($conn, $viwU);
   $x = mysqli_fetch_assoc($run);
+  $v = "select count(*) from attendence where stdid = '$id' and status='p';";
+  $r = mysqli_query($conn, $v);
+  $xi = mysqli_fetch_array($r);
+  $attend = $xi[0];
   $name = $x['name'];
   $gender = $x['gender'];
   $email = $x['email'];
@@ -111,9 +115,14 @@ if (!isset($_SESSION['Semail'])) {
       </tr>
 
       <tr>
-        <td> Current Class: </td>
+        <td> Class: </td>
         <td colspan="10"> </td>
         <td> <?php echo $class; ?> </td>
+      </tr>
+      <tr>
+        <td> Total attendence: </td>
+        <td colspan="10"> </td>
+        <td> <?php echo $attend; ?> </td>
       </tr>
 
     </table>

@@ -24,7 +24,6 @@ if (isset($_POST['Tlogin'])) {
         $row = mysqli_fetch_assoc($R);
         $_SESSION['Tid'] = $row['id'];
         $_SESSION['Tname'] = $row['name'];
-        echo "<script> alert('Successful') </script>"; 
         header('Location: ../pages/teacherLogged.php');
     } 
     else {
